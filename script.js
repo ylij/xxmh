@@ -104,14 +104,16 @@ for(i in v4){
 	li.v=v4[i]+".js",
 	li.onclick=function(){
 		if(this.className)return;
-		let m=document.querySelectorAll("#box1 img");
+		let m=document.querySelectorAll("#box1 img"),t=this;
 		for(var i=0;i<m.length;i++)m[i].onerror=m[i].onload=null;
-		v5.removeAttribute("class");
-		v5=this,
-		v5.className="pck",
 		script=document.createElement("script"),
-		script.src=v5.v;
-		script.onload=()=>{document.body.removeChild(script);};
+		script.src=t.v,
+		script.onload=()=>{
+			document.body.removeChild(script);
+			v5.removeAttribute("class");
+			v5=t,v5.className="pck";
+		},
+		script.onerror=()=>{document.body.removeChild(script)};
 		document.body.appendChild(script);
 		scrollTo(0,0);
 	};
