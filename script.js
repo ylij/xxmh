@@ -104,6 +104,8 @@ for(i in v4){
 	li.v=v4[i]+".js",
 	li.onclick=function(){
 		if(this.className)return;
+		let m=document.querySelectorAll("#box1 img");
+		for(var i=0;i<m.length;i++)m[i].onerror=m[i].onload=null;
 		v5.removeAttribute("class");
 		v5=this,
 		v5.className="pck",
