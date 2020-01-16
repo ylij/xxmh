@@ -103,12 +103,13 @@ for(i in v4){
 	li.innerHTML=+i+1,
 	li.v=v4[i]+".js",
 	li.onclick=function(){
+		if(this.className)return;
 		v5.removeAttribute("class");
 		v5=this,
 		v5.className="pck",
 		script=document.createElement("script"),
 		script.src=v5.v;
-		document.body.removeChild(document.scripts[1]);
+		script.onload=()=>{document.body.removeChild(script);};
 		document.body.appendChild(script);
 		scrollTo(0,0);
 	};
