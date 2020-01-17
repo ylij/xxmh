@@ -33,7 +33,11 @@ f4=(i)=>{
 	img=document.createElement("img"),
 	img.src=path+dat[v1][v2][v3][1]+i+".jpg",
 	img.onerror=img.onload=()=>{f4(i+1)};
-	div[2].children[0].appendChild(img);
+	let d=div[2].children[0],m=d.children;
+	d.appendChild(img);
+	for(var j=0;j<m.length-1;j++){
+	    if(img.isEqualNode(m[j]))d.removeChild(m[j]);
+	}
 },
 
 f5=(i)=>{
