@@ -7,8 +7,7 @@ btn=document.querySelectorAll("body>div:nth-child(2)>button,#box3 button"),
 f1=()=>{
 	div[1].removeAttribute("class");
 	div[2].removeAttribute("class");
-	div[0].className="dis",
-	ul[0].innerHTML="";
+	div[0].className="dis";
 	f5(0);
 },
 
@@ -106,6 +105,7 @@ for(i in v4){
 	li.v=v4[i]+".js",
 	li.onclick=function(){
 		if(this.className)return;
+                ul[0].innerHTML="";
 		t=this,
 		script=document.createElement("script"),
 		script.src=t.v,
