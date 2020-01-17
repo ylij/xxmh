@@ -114,10 +114,10 @@ for(i in v4){
 			v5.removeAttribute("class");
 			v5=t,v5.className="pck";
 			f1();
+                        scrollTo(0,0);
 		},
 		script.onerror=()=>{document.body.removeChild(script)};
 		document.body.appendChild(script);
-		scrollTo(0,0);
 	};
 	if(i==0)v5=li;
 	page.appendChild(li);
