@@ -33,11 +33,7 @@ f4=(i)=>{
 	img=document.createElement("img"),
 	img.src=path+dat[v1][v2][v3][1]+i+".jpg",
 	img.onerror=img.onload=()=>{f4(i+1)};
-	let d=div[2].children[0],m=d.children;
-	d.appendChild(img);
-	for(var j=0;j<m.length-1;j++){
-	    if(img.isEqualNode(m[j]))d.removeChild(m[j]);
-	}
+	div[2].children[0].appendChild(img);
 },
 
 f5=(i)=>{
@@ -58,9 +54,6 @@ f5=(i)=>{
 	li.appendChild(h);
 	li.appendChild(p);
 	ul[0].appendChild(li);
-	for(var j=0;j<ul[0].children.length-1;j++){
-		if(li.isEqualNode(ul[0].children[j]))ul[0].removeChild(ul[0].children[j]);
-	};
 },
 
 f6=(i)=>{
@@ -120,6 +113,7 @@ for(i in v4){
 			document.body.removeChild(script);
 			v5.removeAttribute("class");
 			v5=t,v5.className="pck";
+			f1();
 		},
 		script.onerror=()=>{document.body.removeChild(script)};
 		document.body.appendChild(script);
@@ -128,3 +122,5 @@ for(i in v4){
 	if(i==0)v5=li;
 	page.appendChild(li);
 }
+
+v5.onclick();
