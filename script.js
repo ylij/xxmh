@@ -9,6 +9,7 @@ f1=()=>{
 	div[2].removeAttribute("class");
 	div[0].className="dis",
 	ul[0].innerHTML="";
+	f7();
 	f5(0);
 },
 
@@ -94,7 +95,12 @@ btn[3].onclick=()=>{
 		f3();
 		scrollTo(0,0)
 	}
-};
+},
+
+f7=()=>{
+	let m=document.querySelectorAll("#box1 img");
+	for(var i=0;i<m.length;i++)m[i].onerror=m[i].onload=null;
+},
 
 v5={},
 page=document.querySelector("#page>ul");
@@ -104,8 +110,8 @@ for(i in v4){
 	li.v=v4[i]+".js",
 	li.onclick=function(){
 		if(this.className)return;
-		let m=document.querySelectorAll("#box1 img"),t=this;
-		for(var i=0;i<m.length;i++)m[i].onerror=m[i].onload=null;
+		f7();
+		t=this,
 		script=document.createElement("script"),
 		script.src=t.v,
 		script.onload=()=>{
