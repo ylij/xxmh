@@ -9,7 +9,6 @@ f1=()=>{
 	div[2].removeAttribute("class");
 	div[0].className="dis",
 	ul[0].innerHTML="";
-	f7();
 	f5(0);
 },
 
@@ -39,6 +38,8 @@ f4=(i)=>{
 
 f5=(i)=>{
 	if(i==dat[v0].length)return;
+	let m=document.querySelectorAll("#box1 img");
+	for(var i=0;i<m.length;i++)m[i].onerror=m[i].onload=null;
 	li=document.createElement("li"),
 	img=document.createElement("img"),
 	h=document.createElement("h4"),
@@ -53,6 +54,9 @@ f5=(i)=>{
 	li.appendChild(h);
 	li.appendChild(p);
 	ul[0].appendChild(li);
+	for(var j=0;j<ul[0].children.length-1;j++){
+		if(li.isEqualNode(ul[0].children[j]))ul[0].removeChild(ul[0].children[j]);
+	};
 },
 
 f6=(i)=>{
@@ -97,11 +101,6 @@ btn[3].onclick=()=>{
 	}
 },
 
-f7=()=>{
-	let m=document.querySelectorAll("#box1 img");
-	for(var i=0;i<m.length;i++)m[i].onerror=m[i].onload=null;
-},
-
 v5={},
 page=document.querySelector("#page>ul");
 for(i in v4){
@@ -110,7 +109,6 @@ for(i in v4){
 	li.v=v4[i]+".js",
 	li.onclick=function(){
 		if(this.className)return;
-		f7();
 		t=this,
 		script=document.createElement("script"),
 		script.src=t.v,
