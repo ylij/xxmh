@@ -1,13 +1,13 @@
 div=document.querySelectorAll("body>div"),
 ul=document.querySelectorAll("body>div>ul:nth-child(1)"),
-v0=0,v1=1,v2=0,v3=0,
+v0=0,v1=1,v2=0,v3=-1,
 path="http://xxmh.gufengmh.com/bookimages/",
 btn=document.querySelectorAll("body>div:nth-child(2)>button,#box3 button"),
 
 f1=()=>{
 	div[1].removeAttribute("class");
 	div[2].removeAttribute("class");
-	div[0].className="dis";
+	div[0].className="dis",
 	f5(0);
 },
 
@@ -19,12 +19,14 @@ f2=()=>{
 	f6(0);
 },
 
-f3=()=>{
+f3=(n)=>{
 	div[0].removeAttribute("class");
 	div[1].removeAttribute("class");
-	div[2].className="dis",
-	div[2].children[0].innerHTML="";
-	f4(1);
+	div[2].className="dis";
+	if(n!==v3){
+		f4(1);
+		div[2].children[0].innerHTML="";
+	}
 },
 
 f4=(i)=>{
@@ -64,7 +66,7 @@ f6=(i)=>{
 	img.onerror=img.onload=()=>{f6(i+1)},
 	p.innerHTML="第"+(+i+1)+"話",
 	li.n=i,
-	li.onclick=function(){v3=this.n;f3();};
+	li.onclick=function(){let n=v3;v3=this.n;f3(n);};
 	li.appendChild(p);
 	li.appendChild(img);
 	ul[1].appendChild(li);
@@ -105,7 +107,7 @@ for(i in v4){
 	li.v=v4[i]+".js",
 	li.onclick=function(){
 		if(this.className)return;
-                ul[0].innerHTML="";
+		ul[0].innerHTML="";
 		t=this,
 		script=document.createElement("script"),
 		script.src=t.v,
@@ -114,7 +116,7 @@ for(i in v4){
 			v5.removeAttribute("class");
 			v5=t,v5.className="pck";
 			f1();
-                        scrollTo(0,0);
+			scrollTo(0,0);
 		},
 		script.onerror=()=>{document.body.removeChild(script)};
 		document.body.appendChild(script);
