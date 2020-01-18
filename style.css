@@ -51,28 +51,53 @@ body>div{display:none}
   background:#faebd7;
 }
 
-#box2>button{
+#box2>button,#box3 button{
+  box-shadow: 0 0 5px DeepPink;
+  border:none;
+  outline:none;
+  background:DeepPink;
   border-radius:50%;
+  width:3em;
+  height:3em;
+  position:relative
+}
+
+#box2>button::before,#box3 button::before{
+  content:'';
+  position:absolute;
+  top:37.475%;
+  left:37.475%;
+  right:29.125%;
+  bottom:29.125%;
+  border-left:2px solid #fff;
+  border-top:2px solid #fff;
+}
+
+#box2>button::before,#box3 button:nth-child(1)::before{
+  top:33.3%;
+  left:33.3%;
+  right:33.3%;
+  bottom:33.3%;
+}
+
+#box2>button::after,#box3 button:nth-child(1)::after{
+  content:'';
+  width:2px;
+  height:1.2em;
+  display:block;
+  margin:auto;
+  background:#fff;
+  transform: rotate(-45deg);
+}
+
+#box2>button,#box3 button:nth-child(1),#box3 button:nth-child(2){
+  transform: rotate(-45deg);
+}
+
+#box2>button{
   position:fixed;
   bottom:1em;
   right:1em;
-  background:DeepPink;
-  border:none;
-  outline:none;
-  width:3em;
-  height:3em;
-  padding-left:1.125em;
-  box-shadow: 0 0 5px DeepPink
-}
-
-#box2>button:before{
-  content:"";
-  display:block;
-  width:1em;
-  height:1em;
-  border-left:2px solid #fff;
-  border-bottom:2px solid #fff;
-  transform: rotate(45deg);
 }
 
 #box3 img{width:100%}
@@ -83,48 +108,17 @@ body>div{display:none}
   bottom:0em;
 }
 
-#box3 button{
-  width:3em;
-  height:3em;
-  border:none;
-  outline:none;
-  border-radius:50%;
-  background:DeepPink;
-  box-shadow: 0 0 5px DeepPink;
-  margin-bottom:1em;
-  padding-left:1.125em
+#box3 button{margin-bottom:1em}
+
+#box3 button:nth-child(3){
+  transform: rotate(135deg);
+  
 }
 
-#box3 button:nth-child(1):before{
-  content:"";
-  border-left:2px solid #fff;
-  border-bottom:2px solid #fff;
-  width:1em;
-  height:1em;
-  display:block;
-  transform: rotate(45deg)
+#box3 button:nth-child(2),#box3 button:nth-child(3){
+  padding:1.125em .875em .875em 1.125em
 }
 
-#box3 button:nth-child(2):before{
-  content:"";
-  border-left:2px solid #fff;
-  border-top:2px solid #fff;
-  width:1em;
-  height:1em;
-  display:block;
-  transform: rotate(-22.5deg)
-}
-
-#box3 button:nth-child(3):before{
-  content:"";
-  border-right:2px solid #fff;
-  border-bottom:2px solid #fff;
-  width:1em;
-  height:1em;
-  display:block;
-  transform: rotate(-22.5deg)
-}
-#box3 button:nth-child(3){padding:.8em}
 #box3{background:black;padding-bottom:10em}
 
 
